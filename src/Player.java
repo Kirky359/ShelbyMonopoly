@@ -4,7 +4,7 @@ public class Player {
     private String name;
     private int money;
     private int position;
-    private ArrayList<Property> properties;
+    private ArrayList<Square> properties;
 
     public String getName() {
         return name;
@@ -22,7 +22,7 @@ public class Player {
         this.name = name;
         position = 0;
         money = 1500;
-        properties = new ArrayList<Property>();
+        properties = new ArrayList<Square>();
     }
 
     private boolean owns(){
