@@ -5,7 +5,7 @@ public class PlayerOption {
         this.message = message;
     }
 
-    abstract public void action();
+     public void action() {}
 
     public String toString(){
         return message;
