@@ -4,7 +4,6 @@ public class Player {
     private String name;
     private int money;
     private int position;
-    
     private ArrayList<Square> properties;
 
     public String getName() {
