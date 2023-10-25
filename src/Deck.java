@@ -1,13 +1,14 @@
 import java.util.LinkedList;
 import java.util.Collections;
 public class Deck {
-    LinkedList<String> deck = new LinkedList<>();
+    LinkedList<Card> deck = new LinkedList<>();
 
     public void takeCard(Player player){
-        String firstCard = deck.poll();
+        Card firstCard = deck.poll();
         deck.offer(firstCard);
+        firstCard.playCard(player);
     }
-    public void addCard(String card){
+    public void addCard(Card card){
         deck.offer(card);
     }
 
