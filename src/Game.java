@@ -12,10 +12,10 @@ public class Game {
     }
 
     // Pass the turn to the next player in the game
-   public void turnPlayer(Player currentPlayer){
-        System.out.println("\n" + currentPlayer.getName() + "'s turn!\n");
-        System.out.println("\nCash :" + currentPlayer.getMoney());
-        System.out.println("\nPosition: " + currentPlayer.getPosition());
+    public void turnPlayer(Player currentPlayer){
+        System.out.println("\n" + currentPlayer.getName() + "'s turn!");
+        System.out.println("Cash :" + currentPlayer.getMoney());
+        System.out.println("Position: " + currentPlayer.getPosition());
 
         currentPlayer.move(cube.rollCube());
 
@@ -31,16 +31,17 @@ public class Game {
     }
 
     private void showPlayerOptions(Player currentPlayer){
-        System.out.println("Enter 1 to buy property\n Enter 2 to end your turn ");
-        if(PlayerInput.selectOptions() == 1) {
+        System.out.println("Enter 1 to buy property\nEnter 2 to end your turn ");
+        int option = PlayerInput.selectOptions();
+        if(option == 1) {
             System.out.println("Property was bought");
-        } else if(PlayerInput.selectOptions() == 2) {
+            endTurn(currentPlayer);
+        } else if(option == 2) {
             System.out.println( currentPlayer.getName() + "'s turned!");
             endTurn(currentPlayer);
         } else {
             System.out.println("Invalid input");
             showPlayerOptions(currentPlayer);
-
         }
     }
 }

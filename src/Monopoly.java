@@ -8,7 +8,6 @@ public class Monopoly {
 
         Game game = new Game(players, board, cube);
 
-
         game.turnPlayer(players.get(0));
     }
 
