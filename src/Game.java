@@ -12,7 +12,7 @@ public class Game {
     }
 
     // Pass the turn to the next player in the game
-    private void turnPlayer(Player currentPlayer){
+    public void turnPlayer(Player currentPlayer){
         System.out.println("\n" + currentPlayer.getName() + "'s turn!");
         System.out.println("Cash :" + currentPlayer.getMoney());
         System.out.println("Position: " + currentPlayer.getPosition());
@@ -32,9 +32,11 @@ public class Game {
 
     private void showPlayerOptions(Player currentPlayer){
         System.out.println("Enter 1 to buy property\nEnter 2 to end your turn ");
-        if(PlayerInput.selectOptions() == 1) {
+        int option = PlayerInput.selectOptions();
+        if(option == 1) {
             System.out.println("Property was bought");
-        } else if(PlayerInput.selectOptions() == 2) {
+            endTurn(currentPlayer);
+        } else if(option == 2) {
             System.out.println( currentPlayer.getName() + "'s turned!");
             endTurn(currentPlayer);
         } else {
