@@ -5,8 +5,9 @@ public class Board {
     public ArrayList<Player> players;
     private Deck deck = new Deck();
     public Cube cube;
-    public Board(ArrayList<Player> players){
+    public Board(ArrayList<Player> players, Cube cube){
         this.players = players;
+        this.cube = cube;
 
         for(int i = 0; i < 40; i++){
             field[i] = new Square();
