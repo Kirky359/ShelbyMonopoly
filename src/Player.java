@@ -37,7 +37,6 @@ public class Player {
     }
     public void move(int numSquares){
         position += numSquares;
-
         //if pass GO
         if(position >= 40){
             System.out.println(name + " passed GO and collected $200");
@@ -45,6 +44,12 @@ public class Player {
             position %= 40;
         }
     }
-
-
+    public void showProperties(){
+        if(properties.isEmpty()){
+            System.out.println("Player do not own any properties");
+        }
+        for(Square property : properties){
+            System.out.println(property);
+        }
+    }
 }
