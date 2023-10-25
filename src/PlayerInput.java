@@ -8,8 +8,7 @@ public class PlayerInput {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
-    public static Object selectOptions(){
-        System.out.println("Enter 1 to buy property\n Enter 2 to end your turn ");
+    public static int selectOptions(){
         return Integer.parseInt(read());
     }
 }

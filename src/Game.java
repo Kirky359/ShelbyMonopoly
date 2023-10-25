@@ -1,12 +1,8 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Game {
-    private int sizeBoard = 40;
-
-    private Cube cube;
-    private Board board;
+    private final Cube cube;
+    private final Board board;
     private ArrayList<Player> players = new ArrayList<Player>();
 
     public Game( ArrayList<Player> players, Board board, Cube cube) {
@@ -25,8 +21,25 @@ public class Game {
 
         showPlayerOptions(currentPlayer);
     }
+    public void endTurn(Player currentPlayer){
+        int currentIndex = players.indexOf(currentPlayer);
+        if(currentIndex + 1 == players.size()){
+            turnPlayer(players.get(0));
+        } else {
+            turnPlayer(players.get(currentIndex + 1));
+        }
+    }
 
     private void showPlayerOptions(Player currentPlayer){
-
+        System.out.println("Enter 1 to buy property\n Enter 2 to end your turn ");
+        if(PlayerInput.selectOptions() == 1) {
+            System.out.println("Property was bought");
+        } else if(PlayerInput.selectOptions() == 2) {
+            System.out.println( currentPlayer.getName() + "'s turned!");
+            endTurn(currentPlayer);
+        } else {
+            System.out.println("Invalid input");
+            showPlayerOptions(currentPlayer);
+        }
     }
 }
