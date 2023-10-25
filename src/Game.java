@@ -12,7 +12,7 @@ public class Game {
     }
 
     // Pass the turn to the next player in the game
-    private void turnPlayer(Player currentPlayer){
+   public void turnPlayer(Player currentPlayer){
         System.out.println("\n" + currentPlayer.getName() + "'s turn!\n");
         System.out.println("\nCash :" + currentPlayer.getMoney());
         System.out.println("\nPosition: " + currentPlayer.getPosition());
@@ -40,6 +40,7 @@ public class Game {
         } else {
             System.out.println("Invalid input");
             showPlayerOptions(currentPlayer);
+
         }
     }
 }
