@@ -4,6 +4,7 @@ import Board.Board;
 import Cube.Cube;
 import Game.Game;
 import Game.Player;
+import Game.PlayerInput;
 
 import java.util.ArrayList;
 

@@ -13,16 +13,18 @@ public class Board {
         this.players = players;
         this.cube = cube;
 
+        //creating all squares on the board
         for(int i = 0; i < 40; i++){
             field[i] = new Square();
         }
     }
 
-    public Square getSquare(int index){
-        return field[index];
+    public Square getSquareAt(int position){
+        return field[position];
     }
 
     public Square getCurrentSquare(Player player){
-        return field[player.getPosition()];
+        return getSquareAt(player.getPosition());
     }
+
 }
