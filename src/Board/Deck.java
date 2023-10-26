@@ -7,6 +7,12 @@ import java.util.Collections;
 public class Deck {
     LinkedList<Card> deck = new LinkedList<>();
 
+    public Deck(){
+        for (int i = 0; i < 20; i++) {
+            Card card = new Card("Card" + 1);
+            deck.add(card);
+        }
+    }
     public void takeCard(Player player){
         Card firstCard = deck.poll();
         deck.offer(firstCard);
