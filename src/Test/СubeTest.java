@@ -1,5 +1,6 @@
-package Cube;
+package Test;
 
+import Cube.Cube;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
