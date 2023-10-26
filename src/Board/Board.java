@@ -1,3 +1,7 @@
+package Board;
+
+import Cube.Cube;
+import Game.Player;
 import java.util.ArrayList;
 
 public class Board {

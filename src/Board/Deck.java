@@ -1,3 +1,7 @@
+package Board;
+
+import Game.Player;
+
 import java.util.LinkedList;
 import java.util.Collections;
 public class Deck {
