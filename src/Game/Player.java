@@ -1,7 +1,7 @@
-package Player;
+package Game;
 
 import java.util.ArrayList;
-import Square.Square
+import Board.Square;
 
 public class Player {
     private String name;
@@ -49,7 +49,7 @@ public class Player {
     }
     public void showProperties(){
         if(properties.isEmpty()){
-            System.out.println("Player.Player do not own any properties");
+            System.out.println("Game.Player do not own any properties");
         }
         for(Square property : properties){
             System.out.println(property);

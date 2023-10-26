@@ -1,4 +1,7 @@
+package Game;
+
 import Cube.Cube;
+import Board.Board;
 
 import java.util.ArrayList;
 
@@ -7,7 +10,7 @@ public class Game {
     private final Board board;
     private ArrayList<Player> players = new ArrayList<Player>();
 
-    public Game( ArrayList<Player> players, Board board, Cube cube) {
+    public Game(ArrayList<Player> players, Board board, Cube cube) {
         this.cube = cube;
         this.players = players;
         this.board = board;

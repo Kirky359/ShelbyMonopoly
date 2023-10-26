@@ -1,7 +1,9 @@
+package Monopoly;
+
 import Board.Board;
 import Cube.Cube;
 import Game.Game;
-import Player.Player;
+import Game.Player;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,6 @@
-import Player.Player;
+package Board;
+
+import Game.Player;
 
 public class Card {
     String textCard;
