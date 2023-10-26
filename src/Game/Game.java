@@ -42,6 +42,7 @@ public class Game {
             endTurn(currentPlayer);
         }
         else {
+            System.out.println(board.getCurrentSquare(currentPlayer).getName());
             System.out.println("Enter 1 to buy property\nEnter 2 to end your turn ");
             int option = PlayerInput.selectOptions();
             if (option == 1) {
