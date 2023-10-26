@@ -1,1 +1,4 @@
-# Monopoly.Monopoly from Team Shelby
+# Monopoly from Team Shelby
+___
+
+## UML use case diagram of Monopoly
