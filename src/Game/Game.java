@@ -43,7 +43,7 @@ public class Game {
         }
         else {
             System.out.println("Entered square\n" + board.getCurrentSquare(currentPlayer).getName());
-            if(!(position == 0 || position == 4 ||position == 10 ||position == 20 ||position == 30 ||position == 38)){
+            if(!(position == 0 ||position == 4 ||position == 10 ||position == 20 ||position == 30 ||position == 38)){
                 System.out.println("Enter 1 to buy property\nEnter 2 to end your turn ");
                 int option = PlayerInput.selectOptions();
                 if (option == 1) {
@@ -60,8 +60,8 @@ public class Game {
     }
 
     private boolean isCardPosition(int position){
-        if(position == 2 || position == 7 ||position == 17 ||
-                position == 22 ||position == 33 ||position == 36){
+        if(position == 2   || position == 7 || position == 17 ||
+        position == 22 ||position == 33 ||position == 36){
             return true;
         }
         return false;

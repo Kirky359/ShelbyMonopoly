@@ -17,7 +17,7 @@ public class Monopoly {
         game.turnPlayer(players.get(0));
     }
 
-    static ArrayList<Player> createPlayers(int numPlayers){
+    public static ArrayList<Player> createPlayers(int numPlayers){
         ArrayList<Player> players = new ArrayList<>();
 
         for(int i = 1; i <= numPlayers; i++){
