@@ -1,3 +1,5 @@
+package Cube;
+
 public class Cube {
     private int roll1;
     private int roll2;
