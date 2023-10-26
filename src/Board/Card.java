@@ -1,3 +1,5 @@
+import Player.Player;
+
 public class Card {
     String textCard;
 

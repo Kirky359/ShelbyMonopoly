@@ -1,3 +1,5 @@
+import Player.Player;
+
 import java.util.LinkedList;
 import java.util.Collections;
 public class Deck {
