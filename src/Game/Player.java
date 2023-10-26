@@ -1,6 +1,8 @@
 package Game;
 
 import java.util.ArrayList;
+
+import Board.Board;
 import Board.Square;
 
 public class Player {
