@@ -22,7 +22,7 @@ public class Game {
         System.out.println("Cash: " + currentPlayer.getMoney());
         System.out.println("Position: " + currentPlayer.getPosition());
 
-        currentPlayer.move(cube.rollCube());
+        currentPlayer.move(cube.rollCube(), board);
 
         System.out.println("Position after roll cube: " + board.getCurrentSquare(currentPlayer).getName());
 

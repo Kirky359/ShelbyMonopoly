@@ -14,4 +14,7 @@ public class Cube {
         System.out.println("You got " + roll1 + " and " + roll2);
         return roll1 + roll2;
     }
+    public boolean isDouble(){
+        return roll1 == roll2;
+    }
 }

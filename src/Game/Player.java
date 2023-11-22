@@ -9,6 +9,9 @@ public class Player {
     private String name;
     private int money;
     private int position;
+    public boolean inJail;
+    public int outOfJailCards;
+    public int turnsInJail;
     private ArrayList<Square> properties;
 
     public String getName() {
@@ -27,6 +30,9 @@ public class Player {
         this.name = name;
         position = 0;
         money = 1500;
+        inJail = false;
+        outOfJailCards = 0;
+        turnsInJail = 0;
         properties = new ArrayList<Square>();
     }
 
@@ -40,7 +46,7 @@ public class Player {
     public void addMoney(int addMoney){
         this.money += addMoney;
     }
-    public void move(int numSquares){
+    public void move(int numSquares, Board board){
         position += numSquares;
         //if pass GO
         if(position >= 40){
