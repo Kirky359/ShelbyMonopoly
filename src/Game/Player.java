@@ -10,7 +10,7 @@ public class Player {
     public boolean inJail;
     public int outOfJailCards;
     public int turnsInJail;
-    private ArrayList<Square> properties;
+    private ArrayList<Property> properties;
 
     public String getName() {
         return name;
@@ -31,7 +31,7 @@ public class Player {
         inJail = false;
         outOfJailCards = 0;
         turnsInJail = 0;
-        properties = new ArrayList<Square>();
+        properties = new ArrayList<Property>();
     }
 
 
@@ -79,5 +79,45 @@ public class Player {
         for(Square property : properties){
             System.out.println(property);
         }
+    }
+
+    public boolean ownsGroup(PropertyColors.Group group){
+        int count = 0;
+
+        for(Property property : properties){
+            if(property instanceof PropertyColors && ((PropertyColors) property).getGroup() == group){
+                count++;
+            }
+        }
+
+        return (count == group.maxInGroup);
+    }
+
+    public ArrayList<PropertyColors> getOwnColorGroupList(){
+        ArrayList<PropertyColors> list = new ArrayList<>();
+        for(Property property: properties){
+            if(property instanceof PropertyColors && ownsGroup(((PropertyColors) property).getGroup())){
+                list.add((PropertyColors) property);
+            }
+        }
+        return list;
+    }
+    public ArrayList<PropertyColors> getHouseableProperties(){
+        ArrayList<PropertyColors> houseable = new ArrayList<>();
+        for(PropertyColors i : getOwnColorGroupList()){
+            boolean lowestHouses = true;
+
+            for(PropertyColors j : getOwnColorGroupList()){
+                if(i.getGroup() == j.getGroup() && i.getNumHouses() > j.getNumHouses()){
+                    lowestHouses = false;
+                }
+            }
+
+            if(lowestHouses && i.getNumHouses() != 5){
+                houseable.add(i);
+            }
+        }
+
+        return houseable;
     }
 }

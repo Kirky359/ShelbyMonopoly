@@ -5,18 +5,21 @@ import Cube.Cube;
 import Game.Game;
 import Game.Player;
 import Game.PlayerInput;
+import Board.Jail;
 
 import java.util.ArrayList;
 
 public class Monopoly {
     public static void main(String[] args){
         Cube cube = new Cube();
+        Jail jail = new Jail();
         ArrayList<Player> players = createPlayers(2);
         Board board = new Board(players, cube);
 
-        Game game = new Game(players, board, cube);
+        Game game = new Game(jail, cube, board, players);
+        jail.setGame(game);
 
-        game.turnPlayer(players.get(0));
+        game.turn(players.get(0));
     }
 
     public static ArrayList<Player> createPlayers(int numPlayers){
