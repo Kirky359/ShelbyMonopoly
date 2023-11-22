@@ -1,0 +1,17 @@
+package Board;
+
+import Game.Player;
+
+public class CardDraw extends Square{
+    private Deck deck;
+
+    public CardDraw(Deck deck, String name){
+        super(name);
+        this.deck = deck;
+    }
+
+    @Override
+    public void doAction(Player player) {
+        deck.takeCard(player);
+    }
+}

@@ -31,6 +31,11 @@ public class Board {
     public void playCard(Player currentPlayer){deck.takeCard(currentPlayer);}
 
     private Square createSquare(int position) {
-        return new Square("Square" + position);
+        return new Square("Square" + position) {
+            @Override
+            public void doAction(Player player) {
+
+            }
+        };
     }
 }
