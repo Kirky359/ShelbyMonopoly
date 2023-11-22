@@ -1,4 +1,5 @@
 package Game;
+import Board.*;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,16 @@ public class Player {
             money += 200;
             position %= 40;
         }
+    }
+
+    public void pay(Player receiving, int amount){
+        receiving.addMoney(amount);
+        addMoney(-amount);
+    }
+
+    public void buy(Property property){
+        addMoney(-property.getPrice());
+        properties.add(property);
     }
     public void showProperties(){
         if(properties.isEmpty()){
