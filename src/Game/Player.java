@@ -3,9 +3,6 @@ import Board.*;
 
 import java.util.ArrayList;
 
-import Board.Board;
-import Board.Square;
-
 public class Player {
     private String name;
     private int money;
@@ -69,6 +66,15 @@ public class Player {
     public void showProperties(){
         if(properties.isEmpty()){
             System.out.println("Game.Player do not own any properties");
+        }
+        for(Square property : properties){
+            System.out.println(property);
+        }
+    }
+
+    public void listProperties(){
+        if(properties.isEmpty()){
+            System.out.println("You do not own any properties");
         }
         for(Square property : properties){
             System.out.println(property);
