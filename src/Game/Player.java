@@ -92,6 +92,16 @@ public class Player {
 
         return (count == group.maxInGroup);
     }
+    public int getNumUtilities(){
+        int numUtilities = 0;
+        for(Property p : properties){
+            if(p instanceof Utility){
+                numUtilities++;
+            }
+        }
+
+        return numUtilities;
+    }
     public void mortgage(Property property){
         property.mortgaged = true;
         addMoney(property.getPrice() / 2);
