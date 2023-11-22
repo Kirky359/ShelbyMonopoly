@@ -35,8 +35,8 @@ public class Player {
     }
 
 
-    private boolean owns(){
-        return false;
+    private boolean owns(Property property){
+        return properties.contains(property);
     }
 
     private void buy(){
@@ -92,6 +92,22 @@ public class Player {
 
         return (count == group.maxInGroup);
     }
+    public void mortgage(Property property){
+        property.mortgaged = true;
+        addMoney(property.getPrice() / 2);
+    }
+    public ArrayList<Property> getUnimprovedProperties(){
+        ArrayList<Property> unimproved = new ArrayList<>();
+        for(Property property : properties){
+            if(property instanceof PropertyColors && ((PropertyColors) property).getNumHouses() != 0);
+            else {
+                unimproved.add(property);
+            }
+        }
+
+        return unimproved;
+    }
+
 
     public ArrayList<PropertyColors> getOwnColorGroupList(){
         ArrayList<PropertyColors> list = new ArrayList<>();
