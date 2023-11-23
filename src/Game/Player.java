@@ -14,7 +14,7 @@ public class Player {
     public boolean inJail;
     public int outOfJailCards;
     public int turnsInJail;
-    private ArrayList<Property> properties;
+    private List<Property> properties;
 
     public String getName() {
         return name;
@@ -37,10 +37,10 @@ public class Player {
         turnsInJail = 0;
         properties = new ArrayList<Property>();
     }
-    private void sortPropertiesByGroup(ArrayList<Property> properties) {
-        ArrayList<Utility> utilities = new ArrayList<>();
-        ArrayList<RailRoad> railroads = new ArrayList<>();
-        ArrayList<Property> sorted = new ArrayList<>();
+    private void sortPropertiesByGroup(List<Property> properties) {
+        List<Utility> utilities = new ArrayList<>();
+        List<RailRoad> railroads = new ArrayList<>();
+        List<Property> sorted = new ArrayList<>();
 
         for (Property property : properties) {
             if (property instanceof Utility) {
@@ -152,8 +152,8 @@ public class Player {
         addMoney(property.getPrice() / 2);
     }
 
-    public ArrayList<Property> getUnimprovedProperties(){
-        ArrayList<Property> unimproved = new ArrayList<>();
+    public List<Property> getUnimprovedProperties(){
+        List<Property> unimproved = new ArrayList<>();
         for(Property property : properties){
             if(property instanceof PropertyColors && ((PropertyColors) property).getNumHouses() != 0);
             else {
@@ -164,8 +164,8 @@ public class Player {
         return unimproved;
     }
 
-    public ArrayList<Property> getMortgagedProperties(){
-        ArrayList<Property> mortgaged = new ArrayList<>();
+    public List<Property> getMortgagedProperties(){
+        List<Property> mortgaged = new ArrayList<>();
         for(Property property : properties){
             if(property.mortgaged){
                 mortgaged.add(property);
@@ -180,8 +180,8 @@ public class Player {
         addMoney( (int) (-property.getPrice() * 0.55) );
     }
 
-    public ArrayList<PropertyColors> getOwnColorGroupList(){
-        ArrayList<PropertyColors> list = new ArrayList<>();
+    public List<PropertyColors> getOwnColorGroupList(){
+        List<PropertyColors> list = new ArrayList<>();
         for(Property property: properties){
             if(property instanceof PropertyColors && ownsGroup(((PropertyColors) property).getGroup())){
                 list.add((PropertyColors) property);
@@ -190,8 +190,8 @@ public class Player {
         return list;
     }
 
-    public ArrayList<PropertyColors> getHouseableProperties(){
-        ArrayList<PropertyColors> houseable = new ArrayList<>();
+    public List<PropertyColors> getHouseableProperties(){
+        List<PropertyColors> houseable = new ArrayList<>();
         for(PropertyColors i : getOwnColorGroupList()){
             boolean lowestHouses = true;
 

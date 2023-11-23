@@ -12,16 +12,16 @@ public class Game {
     private final Jail jail;
     private final Cube cube;
     private final Board board;
-    private ArrayList<Player> players = new ArrayList<Player>();
+    private List<Player> players = new ArrayList<Player>();
 
-    public Game(Jail jail, Cube cube, Board board, ArrayList<Player> players){
+    public Game(Jail jail, Cube cube, Board board, List<Player> players){
         this.jail = jail;
         this.cube = cube;
         this.board = board;
         this.players = players;
     }
 
-    public ArrayList<Player> getPlayers (){
+    public List<Player> getPlayers (){
         return players;
     }
 
