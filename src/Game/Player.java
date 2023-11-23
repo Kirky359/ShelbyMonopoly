@@ -92,6 +92,16 @@ public class Player {
 
         return (count == group.maxInGroup);
     }
+    public int getNumRailroads(){
+        int numRailroads = 0;
+        for(Property p : properties){
+            if(p instanceof RailRoad){
+                numRailroads++;
+            }
+        }
+
+        return numRailroads;
+    }
     public int getNumUtilities(){
         int numUtilities = 0;
         for(Property p : properties){
