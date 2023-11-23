@@ -176,8 +176,9 @@ public class Player {
     }
 
     public void payMortgage(Property property){
+        double rate = 0.55;
         property.mortgaged = false;
-        addMoney( (int) (-property.getPrice() * 0.55) );
+        addMoney( (int) (-property.getPrice() * rate) );
     }
 
     public List<PropertyColors> getOwnColorGroupList(){

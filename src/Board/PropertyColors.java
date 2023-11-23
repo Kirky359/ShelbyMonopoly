@@ -3,7 +3,6 @@ package Board;
 public class PropertyColors extends Property{
 
     private final Group group;
-
     private int numHouses = 0; //number of houses currently on property
     private final int houseCost;
 
@@ -73,7 +72,8 @@ public class PropertyColors extends Property{
     public void addHouse(){
         getOwner().addMoney(-houseCost);
         numHouses++;
-        if(numHouses == 5){
+        int maxNumHouses = 5;
+        if(numHouses == maxNumHouses){
             System.out.println("Purchased a hotel on " + name + " for " + houseCost);
         } else {
             System.out.println("Purchased a house on " + name + " for " + houseCost);

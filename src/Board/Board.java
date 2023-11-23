@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    private final Square[] board = new Square[40];
+    private final int sizeBoard = 40;
+    private final int sizeDeck = 16;
+    private final Square[] board = new Square[sizeBoard];
     private Deck communityChest = new Deck();
     private Deck chance = new Deck();
     public Jail jail;
@@ -23,13 +25,13 @@ public class Board {
         this.players = players;
 
         //creating all squares on the board
-        for(int i = 0; i < 40; i++){
+        for(int i = 0; i < sizeBoard; i++){
             board[i] = createSquare(i);
             board[i].index = i;
         }
 
         //create community chest/chance deck
-        for(int c = 0; c < 16; c++){
+        for(int c = 0; c < sizeDeck; c++){
             communityChest.addCard(createCommunityChestCard(c));
             chance.addCard(createChanceCard(c));
         }

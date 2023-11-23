@@ -15,7 +15,8 @@ public class Monopoly {
     public static void main(String[] args){
         Cube cube = new Cube();
         Jail jail = new Jail();
-        List<Player> players = createPlayers(2);
+        int numPlayers = getNumberOfPlayers();
+        List<Player> players = createPlayers(numPlayers);
         Board board = new Board(jail, cube, players);
 
         Game game = new Game(jail, cube, board, players);
@@ -33,5 +34,27 @@ public class Monopoly {
         }
 
         return players;
+    }
+
+    private static int getNumberOfPlayers() {
+        int numPlayers = 0;
+
+        while (numPlayers <= 0 || numPlayers > 6) {
+            System.out.print("Enter the number of players: ");
+
+            try {
+                numPlayers = Integer.parseInt(PlayerInput.read());
+
+                if (numPlayers <= 0) {
+                    System.out.println("Please enter a valid number of players (greater than 0).");
+                } else if (numPlayers > 6) {
+                    System.out.println("Please enter a valid number of players (less than 6).");
+                }
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Please enter a valid integer.");
+            }
+        }
+
+        return numPlayers;
     }
 }

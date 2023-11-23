@@ -26,7 +26,6 @@ public class RailRoad extends Property {
                 rent = -1;
                 break;
         }
-
         return rent;
     }
 }
