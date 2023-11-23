@@ -14,7 +14,7 @@ public class Monopoly {
         Cube cube = new Cube();
         Jail jail = new Jail();
         ArrayList<Player> players = createPlayers(2);
-        Board board = new Board(players, cube);
+        Board board = new Board(jail, cube, players);
 
         Game game = new Game(jail, cube, board, players);
         jail.setGame(game);

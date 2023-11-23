@@ -2,6 +2,7 @@ package Game;
 import Board.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Player {
     private String name;
@@ -24,7 +25,7 @@ public class Player {
         return position;
     }
 
-    public Player(String name){
+    public Player(String name) {
         this.name = name;
         position = 0;
         money = 1500;
@@ -35,11 +36,38 @@ public class Player {
     }
 
 
-    private boolean owns(Property property){
+    private boolean owns(Property property) {
         return properties.contains(property);
     }
 
-    private void buy(){
+    private void sortPropertiesByGroup(ArrayList<Property> properties) {
+        ArrayList<Utility> utilities = new ArrayList<>();
+        ArrayList<RailRoad> railroads = new ArrayList<>();
+        ArrayList<Property> sorted = new ArrayList<>();
+
+        for (Property property : properties) {
+            if (property instanceof Utility) {
+                utilities.add((Utility) property);
+            } else if (property instanceof RailRoad) {
+                railroads.add((RailRoad) property);
+            } else {
+                sorted.add(property);
+            }
+        }
+        Collections.sort(utilities);
+        Collections.sort(railroads);
+        Collections.sort(sorted);
+
+        sorted.addAll(railroads);
+        sorted.addAll(utilities);
+
+        this.properties = sorted;
+    }
+
+
+    public void sell(Property property){
+        addMoney(property.getPrice() / 2);
+        property.setOwner(null);
     }
     public void addMoney(int addMoney){
         this.money += addMoney;
@@ -63,14 +91,14 @@ public class Player {
         addMoney(-property.getPrice());
         properties.add(property);
     }
-    public void showProperties(){
-        if(properties.isEmpty()){
-            System.out.println("Game.Player do not own any properties");
-        }
-        for(Square property : properties){
-            System.out.println(property);
-        }
-    }
+//    public void showProperties(){
+//        if(properties.isEmpty()){
+//            System.out.println("Game.Player do not own any properties");
+//        }
+//        for(Square property : properties){
+//            System.out.println(property);
+//        }
+//    }
 
     public void listProperties(){
         if(properties.isEmpty()){
