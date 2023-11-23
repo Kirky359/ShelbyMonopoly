@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import Game.*;
 import Cube.Cube;
+import Option.PayBailOption;
+import Option.PlayerOption;
+import Option.RollOptionJail;
 
 public class Jail{
     private Game game;

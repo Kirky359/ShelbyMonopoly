@@ -1,8 +1,10 @@
-package Game;
+package Option;
 
 import Board.*;
+import Game.Player;
+import Game.PlayerInput;
 
-class SellPropertyOption extends PlayerOption {
+public class SellPropertyOption extends PlayerOption {
     Player player;
 
     public SellPropertyOption(Player currentPlayer){

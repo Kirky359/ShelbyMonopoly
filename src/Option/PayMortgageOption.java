@@ -1,7 +1,9 @@
-package Game;
+package Option;
 import Board.*;
+import Game.Player;
+import Game.PlayerInput;
 
-class PayMortgageOption extends PlayerOption {
+public class PayMortgageOption extends PlayerOption {
     Player player;
 
     public PayMortgageOption(Player currentPlayer){

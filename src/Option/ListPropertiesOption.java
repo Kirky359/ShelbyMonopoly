@@ -1,6 +1,8 @@
-package Game;
+package Option;
 
-class ListPropertiesOption extends PlayerOption{
+import Game.Player;
+
+public class ListPropertiesOption extends PlayerOption {
     Player player;
 
     public ListPropertiesOption(Player currentPlayer){

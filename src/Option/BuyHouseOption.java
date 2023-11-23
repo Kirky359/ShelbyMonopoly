@@ -1,8 +1,10 @@
-package Game;
+package Option;
 
 import Board.PropertyColors;
+import Game.Player;
+import Game.PlayerInput;
 
-class BuyHouseOption extends PlayerOption{
+public class BuyHouseOption extends PlayerOption {
     Player player;
 
     public BuyHouseOption(Player currentPlayer){

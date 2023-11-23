@@ -1,8 +1,9 @@
-package Game;
+package Option;
 import Board.*;
 import Cube.*;
+import Game.Player;
 
-public class PayBailOption extends PlayerOption{
+public class PayBailOption extends PlayerOption {
     Cube cube;
     Player player;
     Board board;

@@ -1,6 +1,9 @@
-package Game;
+package Option;
+import Game.*;
 
-class EndTurnOption extends PlayerOption{
+import Game.Game;
+
+public class EndTurnOption extends PlayerOption {
     Game game;
     Player player;
 

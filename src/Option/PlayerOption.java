@@ -1,4 +1,4 @@
-package Game;
+package Option;
 public abstract class PlayerOption {
     String message;
 
