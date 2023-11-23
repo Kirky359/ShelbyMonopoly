@@ -2,17 +2,18 @@ package Board;
 import Game.Player;
 import java.util.ArrayList;
 
-public class Card {
+public abstract class Card {
     String textCard;
 
     public Card(String message){
         this.textCard = message;
     }
     public void playCard(Player player){
+        doAction(player);
         System.out.println("Player " + player.getName() + " got card: " + textCard);
     }
 
-
+    public abstract void doAction(Player player);
 }
 class CollectCard extends Card {
     protected Integer amount;

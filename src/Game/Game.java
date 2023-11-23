@@ -23,7 +23,7 @@ public class Game {
     public ArrayList<Player> getPlayers (){
         return players;
     }
-    //pass turn to next Player
+
     public void turn(Player currentPlayer){
         System.out.println("\n" + currentPlayer.getName() + "'s turn!\nMoney: $" + currentPlayer.getMoney());
 
@@ -57,20 +57,18 @@ public class Game {
             turn(players.get(currentIndex + 1));
         }
     }
-
-    //player options after roll and land on a square
     private void showOptions(Player currentPlayer){
         List<PlayerOption> options = Arrays.asList(
                 new ListPropertiesOption(currentPlayer),
                 new BuyHouseOption(currentPlayer),
-//                new MortgageOption(currentPlayer),
-//                new PayMortgageOption(currentPlayer),
+                new MortgageOption(currentPlayer),
+                new PayMortgageOption(currentPlayer),
                 new EndTurnOption(this, currentPlayer)
         );
 
         PlayerOption selectedOption = (PlayerOption) PlayerInput.selectOptions(options, "Additional Actions:");
         selectedOption.action();
 
-        showOptions(currentPlayer); //when player does not select end turn
+        showOptions(currentPlayer);
     }
 }

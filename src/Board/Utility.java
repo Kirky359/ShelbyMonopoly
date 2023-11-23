@@ -11,7 +11,7 @@ public class Utility extends Property {
     @Override
     public int getRent() {
         int rent;
-        int roll = cube.rollCube();
+        int roll = cube.actualRoll();
 
         switch(owner.getNumUtilities()){
             case 1:

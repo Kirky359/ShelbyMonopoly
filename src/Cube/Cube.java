@@ -17,4 +17,8 @@ public class Cube {
     public boolean isDouble(){
         return roll1 == roll2;
     }
+
+    public int actualRoll(){
+        return roll1 + roll2;
+    }
 }
