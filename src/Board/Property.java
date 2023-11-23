@@ -29,7 +29,7 @@ public abstract class Property extends Square {
     }
 
     public void offerBuy(Player currentPlayer){
-        System.out.println("Would you like to buy for $" + price + "?");
+        System.out.println("Would you like to buy " + name + " for $" + price + "?");
         String response = PlayerInput.read().toLowerCase();
 
         if(response.contains("y")){

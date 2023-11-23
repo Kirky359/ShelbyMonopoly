@@ -74,9 +74,9 @@ public class PropertyColors extends Property{
         getOwner().addMoney(-houseCost);
         numHouses++;
         if(numHouses == 5){
-            System.out.println("Purchased a hotel on for " + houseCost);
+            System.out.println("Purchased a hotel on " + name + " for " + houseCost);
         } else {
-            System.out.println("Purchased a house on for " + houseCost);
+            System.out.println("Purchased a house on " + name + " for " + houseCost);
         }
     }
 
@@ -86,7 +86,9 @@ public class PropertyColors extends Property{
         switch(numHouses){
             case 0:
                 rent = super.getRent();
-                rent *= 2;
+                if(getOwner().ownsGroup(group)){
+                    rent *= 2;
+                }
                 break;
             case 1:
                 rent = rent1;

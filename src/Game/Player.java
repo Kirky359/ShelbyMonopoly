@@ -2,7 +2,9 @@ package Game;
 import Board.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class Player {
     private String name;
@@ -34,12 +36,6 @@ public class Player {
         turnsInJail = 0;
         properties = new ArrayList<Property>();
     }
-
-
-    private boolean owns(Property property) {
-        return properties.contains(property);
-    }
-
     private void sortPropertiesByGroup(ArrayList<Property> properties) {
         ArrayList<Utility> utilities = new ArrayList<>();
         ArrayList<RailRoad> railroads = new ArrayList<>();
@@ -64,14 +60,25 @@ public class Player {
         this.properties = sorted;
     }
 
-
     public void sell(Property property){
         addMoney(property.getPrice() / 2);
         property.setOwner(null);
     }
+
     public void addMoney(int addMoney){
+        if(money < -addMoney){
+            broke(-addMoney - money);
+        }
         this.money += addMoney;
     }
+
+    private void broke(int amountNeeded){
+        System.out.println("You are missing $" + amountNeeded);
+        List<PlayerOption> options = Arrays.asList(
+                new MortgageOption(this)
+        );
+    }
+
     public void move(int numSquares, Board board){
         position += numSquares;
         //if pass GO
@@ -80,6 +87,9 @@ public class Player {
             money += 200;
             position %= 40;
         }
+
+        System.out.println("Landed on " + board.getCurrentSquare(this));
+        board.getCurrentSquare(this).doAction(this);
     }
 
     public void pay(Player receiving, int amount){
@@ -90,15 +100,8 @@ public class Player {
     public void buy(Property property){
         addMoney(-property.getPrice());
         properties.add(property);
+        sortPropertiesByGroup(properties);
     }
-//    public void showProperties(){
-//        if(properties.isEmpty()){
-//            System.out.println("Game.Player do not own any properties");
-//        }
-//        for(Square property : properties){
-//            System.out.println(property);
-//        }
-//    }
 
     public void listProperties(){
         if(properties.isEmpty()){
@@ -120,6 +123,7 @@ public class Player {
 
         return (count == group.maxInGroup);
     }
+
     public int getNumRailroads(){
         int numRailroads = 0;
         for(Property p : properties){
@@ -130,6 +134,7 @@ public class Player {
 
         return numRailroads;
     }
+
     public int getNumUtilities(){
         int numUtilities = 0;
         for(Property p : properties){
@@ -140,10 +145,12 @@ public class Player {
 
         return numUtilities;
     }
+
     public void mortgage(Property property){
         property.mortgaged = true;
         addMoney(property.getPrice() / 2);
     }
+
     public ArrayList<Property> getUnimprovedProperties(){
         ArrayList<Property> unimproved = new ArrayList<>();
         for(Property property : properties){
@@ -181,6 +188,7 @@ public class Player {
         }
         return list;
     }
+
     public ArrayList<PropertyColors> getHouseableProperties(){
         ArrayList<PropertyColors> houseable = new ArrayList<>();
         for(PropertyColors i : getOwnColorGroupList()){

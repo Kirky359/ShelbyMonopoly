@@ -2,8 +2,7 @@ package Board;
 
 import java.util.Arrays;
 import java.util.List;
-import Game.Game;
-import Game.Player;
+import Game.*;
 import Cube.Cube;
 
 public class Jail{
@@ -26,10 +25,21 @@ public class Jail{
         if(currentPlayer.turnsInJail == 3){
             currentPlayer.inJail = false;
 
-            int roll = cube.rollCube();;
+            int roll = cube.rollCube();
+            if(!cube.isDouble()){
+                currentPlayer.addMoney(-50);
+            }
 
             currentPlayer.move(roll, board);
         }
+
+        List<PlayerOption> jailOptions = Arrays.asList(
+                new RollOptionJail(cube, currentPlayer, board),
+                new PayBailOption(cube, currentPlayer, board)
+        );
+
+        PlayerOption selectedOption = (PlayerOption) PlayerInput.selectOptions(jailOptions, "Roll a double or pay $50 to escape");
+        selectedOption.action();
 
         return currentPlayer.inJail;
     }

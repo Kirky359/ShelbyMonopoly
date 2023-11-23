@@ -4,7 +4,7 @@ import Game.*;
 import Cube.*;
 import Board.*;
 
-class RollOptionJail extends PlayerOption {
+public class RollOptionJail extends PlayerOption {
     Cube cube;
     Player player;
     Board board;
