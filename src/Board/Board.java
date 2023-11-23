@@ -58,7 +58,7 @@ public class Board {
             case 4:
                 return new Tax("INCOME TAX", 200);
             case 5:
-                return new Railroad("Reading Railroad");
+                return new RailRoad("Reading Railroad");
             case 6:
                 return new PropertyColors("Oriental Avenue", PropertyColors.Group.SKY, 100, 6, 30, 90, 270, 400, 550);
             case 7:
@@ -78,7 +78,7 @@ public class Board {
             case 14:
                 return new PropertyColors("Virginia Avenue", PropertyColors.Group.PINK, 160, 12, 60, 180, 500, 700, 900);
             case 15:
-                return new Railroad("Pennsylvania Railroad");
+                return new RailRoad("Pennsylvania Railroad");
             case 16:
                 return new PropertyColors("St. James Place", PropertyColors.Group.ORANGE, 180, 14, 70, 200, 550, 750, 950);
             case 17:
@@ -98,7 +98,7 @@ public class Board {
             case 24:
                 return new PropertyColors("Illinois Avenue", PropertyColors.Group.RED, 240, 20, 100, 300, 750, 925, 1100);
             case 25:
-                return new Railroad("B&O Railroad");
+                return new RailRoad("B&O Railroad");
             case 26:
                 return new PropertyColors("Atlantic Avenue", PropertyColors.Group.YELLOW, 260, 22, 110, 330, 800, 975, 1150);
             case 27:
@@ -111,7 +111,7 @@ public class Board {
                 return new Square("Go to Jail"){
                     @Override
                     public void doAction(Player currentPlayer){
-                        jail.sendToJail(currentPlayer);
+                        jail.sendPlayerToJail(currentPlayer);
                     }
                 };
             case 31:
@@ -123,7 +123,7 @@ public class Board {
             case 34:
                 return new PropertyColors("Pennsylvania Avenue", PropertyColors.Group.GREEN, 320, 28, 150, 450, 1000, 1200, 1400);
             case 35:
-                return new Railroad("Short Line");
+                return new RailRoad("Short Line");
             case 36:
                 return new CardDraw(chance, "Chance");
             case 37:
