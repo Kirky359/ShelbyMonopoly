@@ -118,6 +118,21 @@ public class Player {
         return unimproved;
     }
 
+    public ArrayList<Property> getMortgagedProperties(){
+        ArrayList<Property> mortgaged = new ArrayList<>();
+        for(Property property : properties){
+            if(property.mortgaged){
+                mortgaged.add(property);
+            }
+        }
+
+        return mortgaged;
+    }
+
+    public void payMortgage(Property property){
+        property.mortgaged = false;
+        addMoney( (int) (-property.getPrice() * 0.55) );
+    }
 
     public ArrayList<PropertyColors> getOwnColorGroupList(){
         ArrayList<PropertyColors> list = new ArrayList<>();
