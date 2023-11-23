@@ -7,6 +7,7 @@ import Game.PlayerInput;
 import java.util.ArrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
     private final Square[] board = new Square[40];
@@ -14,9 +15,9 @@ public class Board {
     private Deck chance = new Deck();
     public Jail jail;
     public Cube cube;
-    public ArrayList<Player> players;
+    public List<Player> players;
 
-    public Board(Jail jail, Cube cube, ArrayList<Player> players){
+    public Board(Jail jail, Cube cube, List<Player> players){
         this.jail = jail;
         this.cube = cube;
         this.players = players;

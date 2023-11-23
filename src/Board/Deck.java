@@ -4,15 +4,17 @@ import Game.Player;
 
 import java.util.LinkedList;
 import java.util.Collections;
+import java.util.List;
+
 public class Deck {
-    LinkedList<Card> deck = new LinkedList<>();
+    List<Card> deck = new LinkedList<>();
     public void takeCard(Player player){
-        Card firstCard = deck.removeFirst();
+        Card firstCard = deck.remove(0);
         addCard(firstCard);
         firstCard.playCard(player);
     }
     public void addCard(Card card){
-        deck.offer(card);
+        deck.add(card);
     }
 
     public void shuffleDeck(){

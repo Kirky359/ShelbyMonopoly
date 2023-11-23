@@ -8,12 +8,13 @@ import Game.PlayerInput;
 import Board.Jail;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Monopoly {
     public static void main(String[] args){
         Cube cube = new Cube();
         Jail jail = new Jail();
-        ArrayList<Player> players = createPlayers(2);
+        List<Player> players = createPlayers(2);
         Board board = new Board(jail, cube, players);
 
         Game game = new Game(jail, cube, board, players);
@@ -22,8 +23,8 @@ public class Monopoly {
         game.turn(players.get(0));
     }
 
-    public static ArrayList<Player> createPlayers(int numPlayers){
-        ArrayList<Player> players = new ArrayList<>();
+    public static List<Player> createPlayers(int numPlayers){
+        List<Player> players = new ArrayList<>();
 
         for(int i = 1; i <= numPlayers; i++){
             System.out.print("Player " + i + " name: ");

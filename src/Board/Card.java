@@ -1,6 +1,7 @@
 package Board;
 import Game.Player;
-import java.util.ArrayList;
+
+import java.util.List;
 
 public abstract class Card {
     String textCard;
@@ -34,9 +35,9 @@ class CollectCard extends Card {
     }
 }
 class CollectEveryCard extends CollectCard {
-    private ArrayList<Player> players;
+    private List<Player> players;
 
-    public CollectEveryCard(ArrayList<Player> players, int amount, String text){
+    public CollectEveryCard(List<Player> players, int amount, String text){
         super(amount, createCollectMessage(amount, text));
         this.players = players;
     }
