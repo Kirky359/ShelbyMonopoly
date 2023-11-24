@@ -1,32 +1,43 @@
-//package Test;
-//
-//import Board.*;
-//import Cube.Cube;
-//import Game.Player;
-//import Monopoly.*;
-//import org.junit.Test;
-//
-//import java.util.ArrayList;
-//import static org.junit.Assert.*;
-//
-//public class BoardTest {
-//
-//    @Test
-//    public void TestWorkOfBoard() {
-//        ArrayList<Player> players = new ArrayList<>();
-//        Cube cube = new Cube();
-//        Board board = new Board(players, cube);
-//
-//        assertNotNull(board.players);
-//        assertEquals(players, board.players);
-//        assertNotNull(board.cube);
-//        assertEquals(cube, board.cube);
-//
-//        assertNotNull(board.getField());
-//        assertEquals(40, board.getField().length);
-//        for (int i = 0; i < 40; i++) {
-//            assertNotNull(board.getSquare(i));
-//            assertEquals("Square" + i, board.getSquare(i).getName());
-//        }
-//    }
-//}
+package Test;
+
+import Board.*;
+import Cube.Cube;
+import Game.Player;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BoardTest {
+    private Board board;
+
+    @BeforeEach
+    public void setup() {
+        Jail jail = new Jail();
+        Cube cube = new Cube();
+        List<Player> players = new ArrayList<>();
+        board = new Board(jail, cube, players);
+    }
+
+    @Test
+    public void testGetSquareAt() {
+        Square square = board.getSquareAt(0);
+        Assertions.assertEquals("GO", square.toString());
+    }
+
+    @Test
+    public void testGetCurrentSquare() {
+        Player player = new Player("Mykyta");
+        String input = "n\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        player.move(5, board);
+        Square square = board.getCurrentSquare(player);
+        Assertions.assertEquals("Reading Railroad", square.toString());
+    }
+}

@@ -5,6 +5,14 @@ import Game.PlayerInput;
 public class Cube {
     private int roll1;
     private int roll2;
+
+    public void setRoll1(int roll1) {
+        this.roll1 = roll1;
+    }
+
+    public void setRoll2(int roll2) {
+        this.roll2 = roll2;
+    }
     // Rolls two dice and returns the sum of the results
     public int rollCube() {
         System.out.print("Press enter to roll");

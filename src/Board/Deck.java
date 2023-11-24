@@ -20,4 +20,7 @@ public class Deck {
     public void shuffleDeck(){
         Collections.shuffle(deck);
     }
+    public List<Card> getDeck() {
+        return deck;
+    }
 }
