@@ -43,7 +43,4 @@ public class CubeTest {
         int result = cube.actualRoll();
         Assertions.assertEquals(6, result);
     }
-
-    // Add more tests for other methods in the Cube class
-
 }
