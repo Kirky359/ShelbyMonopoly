@@ -3,7 +3,6 @@ package Game;
 import Cube.Cube;
 import Board.*;
 import Option.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +13,7 @@ public class Game {
     private final Board board;
     private List<Player> players = new ArrayList<Player>();
 
-    public Game(Jail jail, Cube cube, Board board, List<Player> players){
+    public Game(Jail jail, Cube cube, Board board, List<Player> players, PlayerInput playerInputMock){
         this.jail = jail;
         this.cube = cube;
         this.board = board;
@@ -71,5 +70,9 @@ public class Game {
         selectedOption.action();
 
         showOptions(currentPlayer);
+    }
+
+    public Player getCurrentPlayer(Player currentPlayer){
+        return currentPlayer;
     }
 }

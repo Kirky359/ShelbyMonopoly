@@ -209,4 +209,8 @@ public class Player {
 
         return houseable;
     }
+    public void setPosition(int position)
+    {
+        this.position = position;
+    };
 }

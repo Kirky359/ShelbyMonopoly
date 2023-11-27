@@ -1,12 +1,10 @@
 package Monopoly;
-
 import Board.Board;
 import Cube.Cube;
 import Game.Game;
 import Game.Player;
 import Game.PlayerInput;
 import Board.Jail;
-import Option.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,7 @@ public class Monopoly {
         List<Player> players = createPlayers(numPlayers);
         Board board = new Board(jail, cube, players);
 
-        Game game = new Game(jail, cube, board, players);
+        Game game = new Game(jail, cube, board, players, playerInputMock);
         jail.setGame(game);
 
         game.turn(players.get(0));
