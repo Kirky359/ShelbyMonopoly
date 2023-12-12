@@ -12,6 +12,7 @@ public class BuyHouseOption extends PlayerOption {
         player = currentPlayer;
     }
 
+    @Override
     public void action(){
         PropertyColors houseProperty = (PropertyColors) PlayerInput.selectOptions(player.getHouseableProperties(), "Select property to purchase house on: ");
 

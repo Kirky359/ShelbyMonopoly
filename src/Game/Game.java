@@ -14,11 +14,14 @@ public class Game {
     private final Board board;
     private List<Player> players = new ArrayList<Player>();
 
+    private final PlayerOptionFactory optionFactory;
+
     public Game(Jail jail, Cube cube, Board board, List<Player> players){
         this.jail = jail;
         this.cube = cube;
         this.board = board;
         this.players = players;
+        this.optionFactory = new PlayerOptionFactory();
     }
 
     public List<Player> getPlayers (){
@@ -58,13 +61,13 @@ public class Game {
             turn(players.get(currentIndex + 1));
         }
     }
-    private void showOptions(Player currentPlayer){
+    private void showOptions(Player currentPlayer) {
         List<PlayerOption> options = Arrays.asList(
-                new ListPropertiesOption(currentPlayer),
-                new BuyHouseOption(currentPlayer),
-                new MortgageOption(currentPlayer),
-                new PayMortgageOption(currentPlayer),
-                new EndTurnOption(this, currentPlayer)
+                optionFactory.createPlayerOption(OptionType.LIST_PROPERTIES, this, currentPlayer, board, cube),
+                optionFactory.createPlayerOption(OptionType.BUY_HOUSE, this, currentPlayer, board, cube),
+                optionFactory.createPlayerOption(OptionType.MORTGAGE, this, currentPlayer, board, cube),
+                optionFactory.createPlayerOption(OptionType.PAY_MORTGAGE, this, currentPlayer, board, cube),
+                optionFactory.createPlayerOption(OptionType.END_TURN, this, currentPlayer, board, cube)
         );
 
         PlayerOption selectedOption = (PlayerOption) PlayerInput.selectOptions(options, "Additional Actions:");

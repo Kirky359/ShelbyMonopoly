@@ -1,4 +1,5 @@
 package Option;
+
 public abstract class PlayerOption {
     String message;
 
@@ -12,3 +13,4 @@ public abstract class PlayerOption {
         return message;
     }
 }
+

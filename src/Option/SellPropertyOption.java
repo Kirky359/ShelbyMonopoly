@@ -12,6 +12,7 @@ public class SellPropertyOption extends PlayerOption {
         player = currentPlayer;
     }
 
+    @Override
     public void action(){
         Property sellProperty = (Property) PlayerInput.selectOptions(player.getUnimprovedProperties(), "Select a property to sell");
 

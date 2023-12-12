@@ -11,6 +11,7 @@ public class PayMortgageOption extends PlayerOption {
         player = currentPlayer;
     }
 
+    @Override
     public void action(){
         Property payMortProperty = (Property) PlayerInput.selectOptions(player.getMortgagedProperties(), "Select a property to pay off mortgage");
 
