@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
-public class Player {
+public class Player implements Cloneable {
     private String name;
     private int money;
     private int position;
@@ -208,5 +209,41 @@ public class Player {
         }
 
         return houseable;
+    }
+
+    @Override
+    public Player clone() {
+        try {
+            Player clonedPlayer = (Player) super.clone();
+            clonedPlayer.properties = new ArrayList<>(properties.size());
+
+            for (Property property : properties) {
+                clonedPlayer.properties.add(property.clone());
+            }
+
+            return clonedPlayer;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError("Cloning not supported for Player");
+        }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Player player = (Player) obj;
+        return money == player.money &&
+                position == player.position &&
+                inJail == player.inJail &&
+                outOfJailCards == player.outOfJailCards &&
+                turnsInJail == player.turnsInJail &&
+                Objects.equals(name, player.name) &&
+                Objects.equals(properties, player.properties);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, money, position, inJail, outOfJailCards, turnsInJail, properties);
     }
 }

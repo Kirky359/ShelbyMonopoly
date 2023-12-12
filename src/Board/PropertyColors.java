@@ -113,7 +113,7 @@ public class PropertyColors extends Property implements Cloneable{
     }
 
     @Override
-    public PropertyColors clone() throws CloneNotSupportedException {
+    public PropertyColors clone() {
         return (PropertyColors) super.clone();
     }
 
