@@ -15,6 +15,7 @@ public class PayBailOption extends PlayerOption {
         this.board = board;
     }
 
+    @Override
     public void action(){
         player.addMoney(-50);
         player.inJail = false;

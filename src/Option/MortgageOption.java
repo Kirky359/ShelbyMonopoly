@@ -11,6 +11,7 @@ public class MortgageOption extends PlayerOption {
         player = currentPlayer;
     }
 
+    @Override
     public void action(){
         Property mortgageProperty = (Property) PlayerInput.selectOptions(player.getUnimprovedProperties(), "Select an unimproved property");
 

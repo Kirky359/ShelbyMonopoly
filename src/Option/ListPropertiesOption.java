@@ -10,6 +10,7 @@ public class ListPropertiesOption extends PlayerOption {
         player = currentPlayer;
     }
 
+    @Override
     public void action(){
         player.listProperties();
     }

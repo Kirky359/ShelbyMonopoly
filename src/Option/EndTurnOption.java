@@ -13,6 +13,7 @@ public class EndTurnOption extends PlayerOption {
         player = currentPlayer;
     }
 
+    @Override
     public void action(){
         game.endTurn(player);
     }

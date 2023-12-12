@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 import Game.*;
 import Cube.Cube;
-import Option.PayBailOption;
-import Option.PlayerOption;
-import Option.RollOptionJail;
+import Option.*;
 
 public class Jail{
     private Game game;
+    private PlayerOptionFactory optionFactory;
 
     public void setGame(Game game){
         this.game = game;
+        this.optionFactory = new PlayerOptionFactory();
     }
 
     public void sendPlayerToJail(Player jailedPlayer){
@@ -37,8 +37,8 @@ public class Jail{
         }
 
         List<PlayerOption> jailOptions = Arrays.asList(
-                new RollOptionJail(cube, currentPlayer, board),
-                new PayBailOption(cube, currentPlayer, board)
+                optionFactory.createPlayerOption(OptionType.ROLL_OPTION_JAIL, game, currentPlayer, board, cube),
+                optionFactory.createPlayerOption(OptionType.PAY_BAIL_OPTION, game, currentPlayer, board, cube)
         );
 
         PlayerOption selectedOption = (PlayerOption) PlayerInput.selectOptions(jailOptions, "Roll a double or pay $50 to escape");

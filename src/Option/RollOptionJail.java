@@ -16,6 +16,7 @@ public class RollOptionJail extends PlayerOption {
         this.board = board;
     }
 
+    @Override
     public void action(){
         int roll = cube.rollCube();
 
