@@ -217,10 +217,6 @@ public class Player implements Cloneable {
             Player clonedPlayer = (Player) super.clone();
             clonedPlayer.properties = new ArrayList<>(properties.size());
 
-            for (Property property : properties) {
-                clonedPlayer.properties.add(property.clone());
-            }
-
             return clonedPlayer;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError("Cloning not supported for Player");
