@@ -1,6 +1,8 @@
 package Board;
 
-public class PropertyColors extends Property{
+import java.util.Objects;
+
+public class PropertyColors extends Property implements Cloneable{
 
     private final Group group;
     private int numHouses = 0; //number of houses currently on property
@@ -109,4 +111,33 @@ public class PropertyColors extends Property{
 
         return rent;
     }
+
+    @Override
+    public PropertyColors clone() throws CloneNotSupportedException {
+        return (PropertyColors) super.clone();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        PropertyColors that = (PropertyColors) obj;
+        return numHouses == that.numHouses &&
+                houseCost == that.houseCost &&
+                rent1 == that.rent1 &&
+                rent2 == that.rent2 &&
+                rent3 == that.rent3 &&
+                rent4 == that.rent4 &&
+                rentH == that.rentH &&
+                group == that.group &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(owner, that.owner);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, group, numHouses, houseCost, rent1, rent2, rent3, rent4, rentH, owner);
+    }
 }
+
