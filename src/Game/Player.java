@@ -4,7 +4,6 @@ import Option.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -39,28 +38,27 @@ public class Player implements Cloneable {
         properties = new ArrayList<Property>();
     }
     private void sortPropertiesByGroup(List<Property> properties) {
-        List<Utility> utilities = new ArrayList<>();
-        List<RailRoad> railroads = new ArrayList<>();
-        List<Property> sorted = new ArrayList<>();
+        SortingStrategy utilityStrategy = new SortingStrategy.UtilitySortingStrategy();
+        SortingStrategy railroadStrategy = new SortingStrategy.RailroadSortingStrategy();
+        SortingStrategy standardStrategy = new SortingStrategy.StandardPropertySortingStrategy();
 
-        for (Property property : properties) {
-            if (property instanceof Utility) {
-                utilities.add((Utility) property);
-            } else if (property instanceof RailRoad) {
-                railroads.add((RailRoad) property);
-            } else {
-                sorted.add(property);
-            }
-        }
-        Collections.sort(utilities);
-        Collections.sort(railroads);
-        Collections.sort(sorted);
 
-        sorted.addAll(railroads);
-        sorted.addAll(utilities);
+        List<Property> utilityProperties = new ArrayList<>(properties);
+        List<Property> railroadProperties = new ArrayList<>(properties);
+        List<Property> standardProperties = new ArrayList<>(properties);
 
-        this.properties = sorted;
+
+        utilityStrategy.sort(utilityProperties);
+        railroadStrategy.sort(railroadProperties);
+        standardStrategy.sort(standardProperties);
+
+
+        this.properties.clear();
+        this.properties.addAll(standardProperties);
+        this.properties.addAll(railroadProperties);
+        this.properties.addAll(utilityProperties);
     }
+
 
     public void sell(Property property){
         addMoney(property.getPrice() / 2);
