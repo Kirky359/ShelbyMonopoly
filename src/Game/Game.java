@@ -75,4 +75,14 @@ public class Game {
 
         showOptions(currentPlayer);
     }
+    public GameMemento saveGame(Player currentPlayer) {
+        int currentPlayerIndex = players.indexOf(currentPlayer);
+        return new GameMemento(players, currentPlayerIndex);
+    }
+
+    public void restoreGame(GameMemento memento, Player currentPlayer) {
+        players = memento.getPlayers();
+        int currentPlayerIndex = memento.getCurrentPlayerIndex();
+        currentPlayer = players.get(currentPlayerIndex);
+    }
 }

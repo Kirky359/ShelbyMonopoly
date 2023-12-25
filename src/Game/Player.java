@@ -127,10 +127,10 @@ public class Player implements Cloneable {
         sortPropertiesByGroup(properties);
     }
 
-    public List<Square> listProperties(){
-        List<Square> ownedProperties = new ArrayList<>();
+    public List<Property> listProperties(){
+        List<Property> ownedProperties = new ArrayList<>();
 
-        for (Square property : properties) {
+        for (Property property : properties) {
             if (property != null) {
                 ownedProperties.add(property);
             }
@@ -150,7 +150,6 @@ public class Player implements Cloneable {
 
         return (count == group.maxInGroup);
     }
-
     public int getNumRailroads(){
         int numRailroads = 0;
         for(Property p : properties){
@@ -266,5 +265,18 @@ public class Player implements Cloneable {
     @Override
     public int hashCode() {
         return Objects.hash(name, money, position, inJail, outOfJailCards, turnsInJail, properties);
+    }
+    public PlayerMemento savePlayerState() {
+        return new PlayerMemento(this);
+    }
+
+    public void restorePlayerState(PlayerMemento memento) {
+        this.name = memento.getName();
+        this.money = memento.getMoney();
+        this.position = memento.getPosition();
+        this.inJail = memento.isInJail();
+        this.outOfJailCards = memento.getOutOfJailCards();
+        this.turnsInJail = memento.getTurnsInJail();
+        this.properties = new ArrayList<>(memento.getProperties());
     }
 }

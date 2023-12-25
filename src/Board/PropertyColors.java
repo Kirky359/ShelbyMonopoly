@@ -139,5 +139,11 @@ public class PropertyColors extends Property implements Cloneable{
     public int hashCode() {
         return Objects.hash(name, group, numHouses, houseCost, rent1, rent2, rent3, rent4, rentH, owner);
     }
-}
+    public PropertyColorsMemento saveState() {
+        return new PropertyColorsMemento(numHouses);
+    }
 
+    public void restoreState(PropertyColorsMemento memento) {
+        this.numHouses = memento.getNumHouses();
+    }
+}
