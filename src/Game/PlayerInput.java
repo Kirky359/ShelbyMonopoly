@@ -10,7 +10,6 @@ public class PlayerInput {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
-
     public static Object selectOptions(List<?> list, String message){
 
         if(list.size() == 0) return null;

@@ -175,7 +175,7 @@ class OutOfJailCard extends Card {
         super("Get Out Of Jail For Free");
     }
     public void doAction(Player player) {
-        player.outOfJailCards++;
+        player.setOutOfJailCards(player.getOutOfJailCards() + 1);
     }
 
     @Override

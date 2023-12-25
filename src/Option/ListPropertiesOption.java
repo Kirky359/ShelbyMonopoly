@@ -1,6 +1,10 @@
 package Option;
 
 import Game.Player;
+import Board.*;
+
+import java.util.List;
+
 
 public class ListPropertiesOption extends PlayerOption {
     Player player;
@@ -12,6 +16,14 @@ public class ListPropertiesOption extends PlayerOption {
 
     @Override
     public void action(){
-        player.listProperties();
+        List<Square> ownedProperties = player.listProperties();
+
+        if (ownedProperties.isEmpty()) {
+            System.out.println("You do not own any properties");
+        } else {
+            for (Square ownedProperty : ownedProperties) {
+                System.out.println(ownedProperty);
+            }
+        }
     }
 }

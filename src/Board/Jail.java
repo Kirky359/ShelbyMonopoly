@@ -6,7 +6,7 @@ import Game.*;
 import Cube.Cube;
 import Option.*;
 
-public class Jail{
+public class Jail {
     private Game game;
     private PlayerOptionFactory optionFactory;
 
@@ -16,17 +16,17 @@ public class Jail{
     }
 
     public void sendPlayerToJail(Player jailedPlayer){
-        jailedPlayer.inJail = true;
+        jailedPlayer.setInJail(true);
         System.out.println("You are now in Jail for the next 3 turns");
         game.endTurn(jailedPlayer);
     }
 
     public boolean jailTurn(Player currentPlayer, Cube cube, Board board){
-        currentPlayer.turnsInJail++;
-        System.out.print("Turn " + currentPlayer.turnsInJail);
+        currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1);
+        System.out.print("Turn " + currentPlayer.getTurnsInJail());
 
-        if(currentPlayer.turnsInJail == 3){
-            currentPlayer.inJail = false;
+        if(currentPlayer.getTurnsInJail() == 3){
+            currentPlayer.setInJail(false);
 
             int roll = cube.rollCube();
             if(!cube.isDouble()){
@@ -44,6 +44,7 @@ public class Jail{
         PlayerOption selectedOption = (PlayerOption) PlayerInput.selectOptions(jailOptions, "Roll a double or pay $50 to escape");
         selectedOption.action();
 
-        return currentPlayer.inJail;
+        return currentPlayer.isInJail();
     }
 }
+

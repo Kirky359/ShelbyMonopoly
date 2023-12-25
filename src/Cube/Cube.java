@@ -1,7 +1,5 @@
 package Cube;
 
-import Game.PlayerInput;
-
 public class Cube {
     private int roll1;
     private int roll2;
@@ -15,9 +13,6 @@ public class Cube {
     }
     // Rolls two dice and returns the sum of the results
     public int rollCube() {
-        System.out.print("Press enter to roll");
-        PlayerInput.read();
-
         roll1 = (int) (Math.random() * 6 + 1);
         roll2 = (int) (Math.random() * 6 + 1);
 

@@ -16,9 +16,9 @@ public class PayBailOption extends PlayerOption {
     }
 
     @Override
-    public void action(){
+    public void action() {
         player.addMoney(-50);
-        player.inJail = false;
+        player.setInJail(false);
         player.move(cube.rollCube(), board);
     }
 }

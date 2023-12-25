@@ -5,9 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
 public class CubeTest {
     private Cube cube;
 
@@ -18,9 +15,6 @@ public class CubeTest {
 
     @Test
     public void testRollCube() {
-        String input = "\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
         int result = cube.rollCube();
         Assertions.assertTrue(result >= 2 && result <= 12);
     }

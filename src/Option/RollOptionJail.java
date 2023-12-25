@@ -17,11 +17,11 @@ public class RollOptionJail extends PlayerOption {
     }
 
     @Override
-    public void action(){
+    public void action() {
         int roll = cube.rollCube();
 
-        if(cube.isDouble()){
-            player.inJail = false;
+        if (cube.isDouble()) {
+            player.setInJail(false);
             player.move(roll, board);
         }
     }

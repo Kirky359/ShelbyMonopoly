@@ -31,7 +31,7 @@ public class Game {
     public void turn(Player currentPlayer){
         System.out.println("\n" + currentPlayer.getName() + "'s turn!\nMoney: $" + currentPlayer.getMoney());
 
-        if(currentPlayer.inJail){ //if player doesn't escape jail on turn, skips to showOptions
+        if(currentPlayer.isInJail()){ //if player doesn't escape jail on turn, skips to showOptions
 
             if(!jail.jailTurn(currentPlayer, cube, board)) {
                 showOptions(currentPlayer);

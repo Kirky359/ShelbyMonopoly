@@ -11,9 +11,9 @@ public class Player implements Cloneable {
     private String name;
     private int money;
     private int position;
-    public boolean inJail;
-    public int outOfJailCards;
-    public int turnsInJail;
+    private boolean inJail;
+    private int outOfJailCards;
+    private int turnsInJail;
     private List<Property> properties;
 
     public String getName() {
@@ -26,6 +26,30 @@ public class Player implements Cloneable {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isInJail() {
+        return inJail;
+    }
+
+    public int getOutOfJailCards() {
+        return outOfJailCards;
+    }
+
+    public int getTurnsInJail() {
+        return turnsInJail;
+    }
+
+    public void setInJail(boolean inJail) {
+        this.inJail = inJail;
+    }
+
+    public void setOutOfJailCards(int outOfJailCards) {
+        this.outOfJailCards = outOfJailCards;
+    }
+
+    public void setTurnsInJail(int turnsInJail) {
+        this.turnsInJail = turnsInJail;
     }
 
     public Player(String name) {
@@ -103,13 +127,16 @@ public class Player implements Cloneable {
         sortPropertiesByGroup(properties);
     }
 
-    public void listProperties(){
-        if(properties.isEmpty()){
-            System.out.println("You do not own any properties");
+    public List<Square> listProperties(){
+        List<Square> ownedProperties = new ArrayList<>();
+
+        for (Square property : properties) {
+            if (property != null) {
+                ownedProperties.add(property);
+            }
         }
-        for(Square property : properties){
-            System.out.println(property);
-        }
+
+        return ownedProperties;
     }
 
     public boolean ownsGroup(PropertyColors.Group group){
