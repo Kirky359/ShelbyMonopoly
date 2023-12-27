@@ -127,10 +127,10 @@ public class Player implements Cloneable {
         sortPropertiesByGroup(properties);
     }
 
-    public List<Property> listProperties(){
-        List<Property> ownedProperties = new ArrayList<>();
+    public List<Square> listProperties(){
+        List<Square> ownedProperties = new ArrayList<>();
 
-        for (Property property : properties) {
+        for (Square property : properties) {
             if (property != null) {
                 ownedProperties.add(property);
             }
@@ -277,6 +277,5 @@ public class Player implements Cloneable {
         this.inJail = memento.isInJail();
         this.outOfJailCards = memento.getOutOfJailCards();
         this.turnsInJail = memento.getTurnsInJail();
-        this.properties = new ArrayList<>(memento.getProperties());
     }
 }

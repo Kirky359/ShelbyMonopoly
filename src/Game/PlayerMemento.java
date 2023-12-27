@@ -11,7 +11,7 @@ public class PlayerMemento {
     private boolean inJail;
     private int outOfJailCards;
     private int turnsInJail;
-    private List<Property> properties;
+    private List<Square> properties;
 
     public PlayerMemento(Player player) {
         this.name = player.getName();
@@ -45,9 +45,5 @@ public class PlayerMemento {
 
     public int getTurnsInJail() {
         return turnsInJail;
-    }
-
-    public List<Property> getProperties() {
-        return new ArrayList<>(properties);
     }
 }
