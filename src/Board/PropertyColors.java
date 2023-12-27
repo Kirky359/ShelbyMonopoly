@@ -31,6 +31,10 @@ public class PropertyColors extends Property implements Cloneable{
             this.maxInGroup = maxInGroup;
         }
     }
+    @Override
+    public Type getPropertyType() {
+        return Type.STANDARD;
+    }
 
     public PropertyColors(String name, Group group, int price, int rent, int rent1, int rent2, int rent3, int rent4, int rentH){
         super(name, price, rent);

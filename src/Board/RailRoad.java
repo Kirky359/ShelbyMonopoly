@@ -6,6 +6,10 @@ public class RailRoad extends Property {
     }
 
     @Override
+    public Type getPropertyType() {
+        return Type.RAILROAD;
+    }
+    @Override
     public int getRent() {
         int rent;
 

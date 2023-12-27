@@ -1,9 +1,6 @@
 package Game;
 
 import Board.Property;
-import Board.RailRoad;
-import Board.Utility;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,9 +10,8 @@ public interface SortingStrategy {
     public class UtilitySortingStrategy implements SortingStrategy {
         @Override
         public void sort(List<Property> properties) {
-
             List<Property> utilities = properties.stream()
-                    .filter(p -> p instanceof Utility)
+                    .filter(p -> p.getPropertyType() == Property.Type.UTILITY)
                     .sorted()
                     .collect(Collectors.toList());
 
@@ -27,9 +23,8 @@ public interface SortingStrategy {
     public class RailroadSortingStrategy implements SortingStrategy {
         @Override
         public void sort(List<Property> properties) {
-
             List<Property> railroads = properties.stream()
-                    .filter(p -> p instanceof RailRoad)
+                    .filter(p -> p.getPropertyType() == Property.Type.RAILROAD)
                     .sorted()
                     .collect(Collectors.toList());
 
@@ -37,11 +32,12 @@ public interface SortingStrategy {
             properties.addAll(railroads);
         }
     }
+
     public class StandardPropertySortingStrategy implements SortingStrategy {
         @Override
         public void sort(List<Property> properties) {
             List<Property> standardProperties = properties.stream()
-                    .filter(p -> !(p instanceof Utility) && !(p instanceof RailRoad))
+                    .filter(p -> p.getPropertyType() == Property.Type.STANDARD)
                     .sorted()
                     .collect(Collectors.toList());
 
@@ -49,7 +45,4 @@ public interface SortingStrategy {
             properties.addAll(standardProperties);
         }
     }
-
-
 }
-

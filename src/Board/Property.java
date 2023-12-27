@@ -56,4 +56,10 @@ public abstract class Property extends Square {
             offerBuy(currentPlayer);
         }
     }
+    public abstract Type getPropertyType();
+    public enum Type {
+        UTILITY, RAILROAD, STANDARD
+    }
+
+
 }

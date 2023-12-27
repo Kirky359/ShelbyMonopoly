@@ -9,6 +9,12 @@ public class Utility extends Property {
     }
 
     @Override
+    public Type getPropertyType() {
+        return Type.UTILITY;
+    }
+
+
+    @Override
     public int getRent() {
         int rent;
         int roll = cube.actualRoll();
