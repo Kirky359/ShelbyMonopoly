@@ -51,7 +51,7 @@ public class Monopoly {
                     System.out.println("Please enter a valid number of players (less than 6).");
                 }
             } catch (java.util.InputMismatchException e) {
-                System.out.println("Please enter a valid number.");
+                System.out.println("Please enter a valid number of players.");
             }
         }
 
